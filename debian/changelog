@@ -1,0 +1,310 @@
+mgdiff (1.0+debian1-1) unstable; urgency=medium
+
+  * QA upload.
+  * Bump version string to use proper "3.0 (quilt)" format.
+  * debian/: Apply wrap-and-sort -abst.
+  * debian/control: Move Vcs-* back to Debian Salsa.
+  * debian/rules: Specify CFLAGS during make. (Closes: #1011471)
+  * debian/: Use 3.0 (quilt) format and debhelper compat v13.
+  * Bump Standards-Version to 4.6.1.
+
+ -- Boyuan Yang <byang@debian.org>  Mon, 07 Nov 2022 17:01:15 -0500
+
+mgdiff (1.0-30) unstable; urgency=medium
+
+  * QA upload.
+  * Set the maintainer to the QA team.
+  * Fix FTBFS with glibc 2.21 and gcc-5 (Closes: #790267).
+  * Fix parsing of diff output in non-English locales (Closes: #387301).
+  * Add a "Reload Both" (meta-R) command (Closes: #394601).
+  * Extend VCS ignores to bzr/git/SVN (Closes: #489327).
+  * Drop remnants of the /usr/doc/ transition.
+  * Make the packaging slightly less musty (debhelper 4->9, dh_clean, dh_prep,
+    build-{binary,arch}, ${misc:Depends}.
+  * Set temporary Vcs-Git/Browser.
+
+ -- Adam Borowski <kilobyte@angband.pl>  Wed, 13 Jan 2016 15:03:29 +0100
+
+mgdiff (1.0-29.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Build-depend on libxt-dev and libxext-dev (Closes: #707943).
+  * Transition from lesstif2 to motif (Closes: #714663).
+
+ -- Luk Claes <luk@debian.org>  Sat, 14 Sep 2013 17:46:18 +0200
+
+mgdiff (1.0-29) unstable; urgency=low
+
+  * Build-depend on xutils-dev rather than xutils (thanks, Daniel Schepler)
+    Closes: #485210
+  * Bumped to standards version 3.8.0
+  * removed DH_COMPAT from debian/rules
+  * fixed rules clean target: removed "-", added debian/tmp
+  * fixed manpages (wrong Minus "-")
+
+ -- Edelhard Becker <edelhard@debian.org>  Tue, 10 Jun 2008 23:33:58 +0200
+
+mgdiff (1.0-28) unstable; urgency=low
+
+  * bug fixes by Javier Fernández-Sanguino Peña <jfs@debian.org>
+    - Insecure /tmp usage in viewpatch example script (Closes: #335188)
+    - mgdiff: Allows user to set both input as '-' (Closes: #335191)
+    Thanks Javier!
+
+ -- Edelhard Becker <edelhard@debian.org>  Tue, 25 Oct 2005 22:48:37 +0200
+
+mgdiff (1.0-27) unstable; urgency=low
+
+  * updated Paul Serices rmgdiff shell and awk scripts to 1.8.1, available
+    from his rmgdiff page (see copyright file); this should fix problems with
+    filenames and dirs with spaces and gawk compatibility, thanks Paul!
+
+ -- Edelhard Becker <edelhard@debian.org>  Thu, 23 Jun 2005 22:14:26 +0200
+
+mgdiff (1.0-26) unstable; urgency=low
+
+  * fixed rmgdiff.1x typo, thanks A Costa (Closes: #310343)
+
+ -- Edelhard Becker <edelhard@debian.org>  Fri, 27 May 2005 17:37:17 +0200
+
+mgdiff (1.0-25) unstable; urgency=low
+
+  * switched to lesstif2, get rid of lesstif1
+  * switched to debhelper, get rid of debmake
+  * made debhelper version lintian-clean
+
+ -- Edelhard Becker <edelhard@debian.org>  Sat, 12 Mar 2005 22:33:35 +0100
+
+mgdiff (1.0-24) unstable; urgency=low
+
+  * bug fixes by Erik de Castro Lopo <erikd AT mega-nerd DOT com>:
+    - clean compiler warnigs (Closes: #271623)
+    - fix Ctrl-U/Ctrl-P handling (Closes: #271624)
+    - fix UTF8 handling (Closes: #135854)
+    Thanks Erik!
+
+ -- Edelhard Becker <edelhard@debian.org>  Thu,  7 Oct 2004 00:50:16 +0200
+
+mgdiff (1.0-23) unstable; urgency=low
+
+  * Removes Xmu references from the build process (Closes: Bug#256419, must
+    been there for ages, thanks Daniel).
+  * corrected manpage sections to 1x
+
+ -- Edelhard Becker <edelhard@debian.org>  Sun, 27 Jun 2004 14:50:55 +0200
+
+mgdiff (1.0-22) unstable; urgency=low
+
+  * included Roger Gammans <rgammans@computer-surgery.co.uk> "Patch Viewer"
+    plus necessary mgdiff patch
+  * Bumped to standards version 3.6.1
+
+ -- Edelhard Becker <edelhard@debian.org>  Thu,  8 Apr 2004 00:33:53 +0200
+
+mgdiff (1.0-21) unstable; urgency=low
+
+  * scrambled Eriks e-mail in the manpage also
+  * typo in man-page fixed (thx Erik pointing this out)
+
+ -- Edelhard Becker <edelhard@debian.org>  Wed,  9 Jul 2003 16:33:07 +0200
+
+mgdiff (1.0-20) unstable; urgency=low
+
+  * applied lots of patches from Erik de Castro Lopo <erikd AT mega-nerd DOT
+    com> (explanations from his e-mail to me):
+    - mgdiff-includes.diff: Fix a couple of missing includes.
+    - mgdiff-islatin.diff: Fix a warning message.
+    - mgdiff-sun-fix.diff: A fix for SUN Solaris.
+    - mgdiff-tempfile.diff: Replace use of tempnam() with something more
+      secure.
+    - mgdiff-warnings.diff: Remove compiler warnings when using CFLAGS equal
+      to -g -O2 -Wall -Wstrict-prototypes -Wmissing-prototypes [eb: added the
+      flags to the Imakefile].
+    - mgdiff-snprintf.diff: Replace all usage of sprintf() with snprintf().
+    - mgdiff-save-left-right.diff: Add file menu entries for "Save as Left..."
+      and "Save as Right...". Includes increment of APP_DEFAULTS_VERSION
+      number, mods to Mgdiff.ad and checks for correct app-default value.
+    - mgdiff-save-unselected.diff: Allow saving files with unselected blocks.
+    - mgdiff-select-both.diff: Add ability to select both sides by clicking
+      with the middle button. When both sides are selected the two blocks are
+      written to the output file using markings similar to the markings CVS
+      palces in a file when a merge goes wrong.
+    - mgdiff-man.diff: Update the man page to reflect the above changes. Also
+      added my own copyright to a couple of files where I made anything more
+      than minor changes. I'm quite happy to have my changes under the same
+      license as the original code.
+  * changed maintainer address to debian account
+  * Bumped to standards version 3.5.10
+  * updated README
+
+ -- Edelhard Becker <edelhard@debian.org>  Sat,  7 Jun 2003 16:07:42 +0200
+
+mgdiff (1.0-19) unstable; urgency=low
+
+  * Added NAME section to cvsmgdiff man page (closes: #141670).
+  * Bumped to standards version 3.5.8.0.
+  * New maintainer. Closes: #169554.
+
+ -- Edelhard Becker <becker@edelhard.de>  Wed, 26 Feb 2003 19:01:20 +0100
+
+mgdiff (1.0-18) unstable; urgency=low
+
+  * Change source maintainer to myself (closes: #71915).
+  * Make cvsmgdiff a bash script (bash should handle anything pdksh does).
+  * Write a manpage for cvsmgdiff.
+  * Add dh_strip to rules (fixes lintian warning).  
+  * Add debhelper to Build-Depends.
+
+ -- Ian Zimmerman <itz@speakeasy.org>  Fri, 15 Feb 2002 12:38:38 -0800
+
+mgdiff (1.0-17) unstable; urgency=low
+
+  * Fixed not being able to specify the cvsmgdiff gui from the command
+    line.  There is now a -g flag.
+  * Also fixed a problem with where mgdiff was not comming up when
+    the -r option was used exactly once on the command line.
+
+ -- Paul Serice <paul@serice.net>  Tue,  5 Feb 2002 13:09:08 -0600
+
+mgdiff (1.0-16) unstable; urgency=low
+
+  * Better dependencies in the Debian "control" file.
+  * Introduced the "cvsmgdiff" script for comparing a revision in your
+    CVS archive with what is currently checked out or for comparing
+    two revision both of which are in the archive.  It works with
+    "mgdiff" (of course), xdiff, xxdiff, and tkdiff (not that tkdiff
+    needs this script).
+  * Portable way to move rmgdiff.awk out of /usr/bin and into
+    /usr/lib/rmgdiff where it should have been in the first place.
+
+ -- Paul Serice <paul@serice.net>  Sat, 26 Jan 2002 23:06:47 -0600
+
+mgdiff (1.0-15) unstable; urgency=low
+
+  * Debian QA Upload.
+  * New version built by Paul Serice <paul@serice.net>
+    Fri, 26 Oct 2001 03:19:15 -0500; Thank you for your contribution:
+    - This is getting embarrassing. Previous version introduced a bug
+      that caused the "only in" sanity check to be triggered (yes,
+      again) when a file was only in one directory but had a minimum
+      depth of 2.
+
+ -- Peter Palfrader <weasel@debian.org>  Sun, 28 Oct 2001 01:55:22 +0200
+
+mgdiff (1.0-14) unstable; urgency=low
+
+  * Debian QA Upload.
+  * New version built by Paul Serice <paul@serice.net>
+    Thu, 27 Sep 2001 20:33:15 -0500; Thanks Paul:
+    - Fatal bug in rmgdiff caused by working on two directories the last
+      one was a superstring of the first one is fixed.
+  * Removed emacs mode commands from debian/changelog.
+  * /etc/X11/app-defaults/Mgdiff tagged as conffile.
+
+ -- Peter Palfrader <weasel@debian.org>  Sat, 29 Sep 2001 23:24:31 +0200
+
+mgdiff (1.0-13) unstable; urgency=low
+
+  * Debian QA Upload.
+  * Changed maintainer email address from debian-qa@lists.debian.org
+    to packages@qa.debian.org.
+  * New version built by Paul Serice <paul@serice.net>
+    Fri, 21 Sep 2001 01:29:06 -0500; Thanks Paul:
+    - Merged patch from Polish(ed) distribution, closes: #96085
+      (mgdiff has wrong heuristics for determining whether a file is
+      text or not).
+    - rmgdiff failed to escape meta-characters in directory names causing
+      directories like "c++_src" to trigger a sanity check.
+
+ -- Peter Palfrader <weasel@debian.org>  Sat, 22 Sep 2001 15:42:00 +0200
+
+mgdiff (1.0-12) unstable; urgency=low
+
+  * Fixed RMGDIFF_GUI variable in /usr/bin/rmgdiff.
+  * Added license and author of rmgdiff to copyright file.
+  * Thanks Paul, closes: #87929.
+
+ -- Peter Palfrader <weasel@debian.org>  Wed, 28 Feb 2001 03:40:31 +0000
+
+mgdiff (1.0-11) unstable; urgency=low
+
+  * Made Build-Depends: xutils, lesstif-dev, debmake (closes: #83848).
+  * Some app-defaults bugs have not been closed by last changelog:
+    (closes: #81421, #81383)
+  * Added support for DEB_BUILD_OPTIONS.
+  * Removed diff from Depends. diff is essential.
+  * Changed man path from usr/X11R6/man to /usr/share/man.
+  * Install binaries in usr/bin instead of usr/X11R6/bin.
+  * Moved doc from /usr/doc to /usr/share/doc and create symlink.
+  * Calling dpkg-gencontrol with -isp now, so Section and Priority fields
+    are in the pacakge.
+
+ -- Peter Palfrader <weasel@debian.org>  Sat, 24 Feb 2001 17:39:49 +0000
+
+mgdiff (1.0-10) unstable; urgency=low
+
+  * Rebuilt to move app-defaults file to /etc/X11, Closes: #86278
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 16 Feb 2001 19:50:21 -0800
+
+mgdiff (1.0-9) unstable; urgency=low
+
+  * Paul orphaned the package a while back. Maintainer set to QA.
+
+ -- Joey Hess <joeyh@debian.org>  Fri, 29 Dec 2000 18:47:27 -0800
+
+mgdiff (1.0-8) unstable; urgency=low
+
+  * Fixed error in man page for rmgdiff.
+
+ -- Paul Serice <ugs@debian.org>  Sat, 13 Nov 1999 05:37:36 -0600
+
+mgdiff (1.0-7) unstable; urgency=low
+
+  * Added dependency on mawk.
+  * Fixed usage for rmgdiff:  -m should be -g.
+
+ -- Paul Serice <ugs@debian.org>  Tue, 26 Oct 1999 21:09:52 -0500
+
+mgdiff (1.0-6) unstable; urgency=low
+
+  * Linked against lesstif1.  Closes bug #48167.
+
+ -- Paul Serice <ugs@debian.org>  Sun, 24 Oct 1999 21:23:31 -0500
+
+mgdiff (1.0-5) unstable; urgency=low
+
+  * Added needed dependency on "file".
+
+ -- Paul Serice <ugs@debian.org>  Sat,  8 May 1999 15:30:37 -0500
+
+mgdiff (1.0-4) unstable; urgency=low
+
+  * I wrote "rmgdiff" to allow the user to recursively diff two
+    directories using any graphical diff viewer -- including
+    mgdiff.
+  * Compiled using libc6 with new naming convention.
+  * mgdiff man page was not in the correct directory.
+  * Added "mgdiff.README".
+  * Now using original source in tarball.
+
+ -- Paul Serice <ugs@debian.org>  Sun, 17 Jan 1999 23:05:44 -0600
+
+mgdiff (1.0-3) unstable; urgency=low
+
+  * Updated description to reflect Lesstif improvements.
+  * Changed architecture to 'any'.
+
+ -- Paul Serice <ugs@debian.org>  Mon, 26 Oct 1998 01:16:45 -0600
+
+mgdiff (1.0-2) unstable; urgency=low
+
+  * Changed architecture to all.
+
+ -- Paul Serice <ugs@debian.org>  Sat, 24 Oct 1998 23:08:56 -0500
+
+mgdiff (1.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Paul Serice <ugs@debian.org>  Tue, 25 Aug 1998 23:05:16 -0500

@@ -1,0 +1,21 @@
+#ifndef XCOMM
+#define XCOMM #
+#endif
+
+XCOMM Imakefile,v 2.0 1994/05/19 02:01:00 dan Exp
+
+XMLIB = -lXm -lm
+XCOMM The gnuregex library is needed for the Motif file selection box widget.
+XCOMM
+XCOMM for Dell SVR4
+XCOMM
+#EXTRA_LIBRARIES = -lc -lucb
+EXTRA_DEFINES = -Wall -Wstrict-prototypes -Wmissing-prototypes
+
+SRCS = mgdiff.c rundiff.c misc.c files.c spawn.c manual.c modal.c legend.c
+OBJS = mgdiff.o rundiff.o misc.o files.o spawn.o manual.o modal.o legend.o
+
+LOCAL_LIBRARIES = $(XMLIB) $(XTOOLLIB) $(XMULIBONLY) $(XLIB)
+
+ComplexProgramTarget(mgdiff)
+InstallAppDefaults(Mgdiff)

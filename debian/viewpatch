@@ -1,0 +1,33 @@
+#!/bin/sh
+##
+#
+# (C) Roger Gammans 2001 (rgammans@computer-surgery.co.uk).
+#
+# Please distribute under the GPL.
+#
+# It's probably better to rely on the $PATH
+# to find the various external bits as they more likey
+# to be in it somewhere than one particluar location
+# over many unices.
+#
+
+FNAME=`tempfile` || { echo "$0: Cannot create temporary file" >&2; exit 1;  }
+trap " [ -f \"$FNAME\" ] && /bin/rm -f -- \"$FNAME\"" 0 1 2 3 13 15
+
+ORIG=$1
+PATCH=$2
+
+shift 2
+
+if [ -z "$ORIG" ] ||  [ ! -e "$ORIG" ] ; then
+	echo "$0: original file '$ORIG' does not exist"
+fi
+if [ -z "$PATCH" ] ||  [ ! -e "$PATCH" ] ; then
+	echo "$0: original file '$ORIG' does not exist"
+fi
+
+
+cp $ORIG $FNAME;
+if patch $* $FNAME  < $PATCH; then mgdiff $ORIG $FNAME; fi
+
+exit 0

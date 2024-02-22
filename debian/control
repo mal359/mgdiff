@@ -1,0 +1,27 @@
+Source: mgdiff
+Section: text
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Build-Depends:
+ debhelper-compat (= 13),
+ libmotif-dev,
+ libxext-dev,
+ libxt-dev,
+ xutils-dev,
+Standards-Version: 4.6.1
+Vcs-Git: https://salsa.debian.org/debian/mgdiff.git
+Vcs-Browser: https://salsa.debian.org/debian/mgdiff
+
+Package: mgdiff
+Architecture: any
+Depends:
+ debianutils (>=1.7),
+ file,
+ mawk,
+ ${misc:Depends},
+ ${shlibs:Depends},
+Description: xdiff clone
+ mgdiff is modeled after xdiff and provides a nice graphical interface
+ for comparing the contents of two text files.  rmgdiff recurses down
+ two directories collating difference information and invoking mgdiff
+ whenever two text files differ.

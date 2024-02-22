@@ -1,0 +1,39 @@
+mgdiff for DEBIAN
+----------------------
+
+I've added an awk script called "rmgdiff" that allows you to use
+mgdiff (or tkdiff etc.) to graphically and recursively diff two
+directories.
+
+Paul Serice <ugs@debian.org>, Tue, 25 Aug 1998 23:05:16 -0500
+
+               -----------------------------
+
+I've applied lots of patches from Erik de Castro Lopo <erikd AT
+mega-nerd DOT com>. Main new features for the user are:
+
+  - Save As Left... / Save As Right... in File menu
+  - saving without having selected all textblocks is possible
+  - click-middle-button selects both sides, the resulting file gets
+    markers like CVS uses
+  - changes documented in manpage
+
+See the changelog entry of 1.0-20 for a complete list of changes and
+the manpage for more explanations of the new features. Thanks Erik,
+great work!
+
+Edelhard Becker <edelhard@debian.org>, Sat, 07 Jun 2003 16:02:26 +0200
+
+               -----------------------------
+
+I've got another useful patch from Roger Gammans <roger@computer-
+surgery.co.uk> which add two features (see his "Patch Viewer" page
+http://www.sandman.uklinux.net/patchv/default.html for more info):
+
+  - X Paste of the most recently selected diff hunk. 
+  - A wrapper to view patches, by appliy them to a temporary file first 
+
+The latter is installed as /usr/share/doc/mgdiff/viewpatch, thanks
+Roger!
+
+Edelhard Becker <edelhard@debian.org>, Thu, 08 Apr 2004 00:42:30 +0200
